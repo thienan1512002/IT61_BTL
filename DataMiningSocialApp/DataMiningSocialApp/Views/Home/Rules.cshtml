@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DataMiningSocialApp.Models.AssociationRule>
+
+@{
+    ViewData["Title"] = "Danh sách Luật Kết Hợp";
+}
+
+<h2 class="mb-4">Danh sách Luật Kết Hợp</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Left Hand Side (LHS)</th>
+            <th>Right Hand Side (RHS)</th>
+            <th>Support</th>
+            <th>Confidence</th>
+            <th>Lift</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="text-center text-muted">Không có luật nào được tìm thấy.</td></tr>
+        }
+        else
+        {
+            foreach (var rule in Model)
+            {
+                <tr>
+                    <td>@string.Join(", ", rule.LHS)</td>
+                    <td>@string.Join(", ", rule.RHS)</td>
+                    <td>@rule.Support</td>
+                    <td>@rule.Confidence</td>
+                    <td>@rule.Lift</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

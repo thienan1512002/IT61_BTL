@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form asp-action="Suggest" method="post">
+        <label>Nhập ID người dùng:</label>
+        <input type="text" name="userId" />
+        <button type="submit">Gợi ý bạn bè</button>
+    </form>
+</div>

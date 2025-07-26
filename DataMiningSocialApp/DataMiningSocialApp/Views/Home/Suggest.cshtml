@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Danh sách bạn gợi ý";
+}
+
+<h3>Gợi ý kết bạn cho: @ViewBag.UserId</h3>
+<ul>
+    @foreach (var friend in Model as List<string>)
+    {
+        <li>@friend</li>
+    }
+</ul>
+<a asp-action="Index">← Trở lại</a>
+
