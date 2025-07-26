@@ -22,15 +22,11 @@ pip install pandas numpy
 
 ## Cấu trúc thư mục
 
-- `Snap_Apriori/`
-  - `snap_apriori.py`: File chính thực thi thuật toán Apriori và sinh luật kết hợp.
 - `Raw_Data/`
   - `facebook_combined.txt`: Dữ liệu thô đầu vào, chứa thông tin kết nối mạng xã hội.
 - `Data_Result/`
   - `DataExample/`
-    - `facebook_combined.csv`: Dữ liệu đã được xử lý, chuyển đổi từ dữ liệu thô.
   - `Rules/`
-    - `association_rules.json`: File lưu kết quả các luật kết hợp được sinh ra từ thuật toán Apriori.
 
 ## Hướng dẫn sử dụng
 
@@ -52,15 +48,48 @@ pip install pandas numpy
    python snap_apriori.py
    ```
 
-   Kết quả các luật kết hợp sẽ được lưu tại `Data_Result/Rules/association_rules.json`.
-
 ## Ví dụ sử dụng
 
-Giả sử bạn đã có dữ liệu đầu vào và đã cài đặt các thư viện cần thiết, chỉ cần chạy:
-
 ```powershell
-cd "e:\UNI\Source Code\IT61_BTL\Snap_Apriori"
 python snap_apriori.py
 ```
 
 Sau khi chạy xong, kiểm tra file kết quả tại `Data_Result/Rules/association_rules.json`.
+
+# 📊 Social Network Association Rules Mining - ASP.NET Core MVC
+
+Đây là hệ thống web được xây dựng bằng **ASP.NET Core MVC (.NET 8)** để trình bày kết quả khai phá luật kết hợp từ dữ liệu mạng xã hội Facebook (SNAP dataset). Hệ thống đọc dữ liệu JSON được xuất từ Python (FP-Growth) và hiển thị qua giao diện web.
+
+---
+
+## 🔧 Công nghệ sử dụng
+
+- ASP.NET Core MVC **8.0**
+- C# (.NET 8)
+- Newtonsoft.Json (đọc JSON)
+- Python 3.11 (chạy thuật toán FP-Growth - riêng biệt)
+
+---
+
+## 🧰 Yêu cầu hệ thống
+
+| Thành phần        | Phiên bản yêu cầu                |
+| ----------------- | -------------------------------- |
+| .NET SDK          | **8.0** trở lên                  |
+| Visual Studio     | 2022 (có hỗ trợ .NET 8)          |
+| Python (optional) | 3.11 nếu cần chạy lại thuật toán |
+
+---
+
+## ▶️ Cách chạy ứng dụng
+
+1. **Cài đặt .NET 8 SDK**  
+   Tải tại: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+
+2. **Clone dự án về máy:**
+
+   ```bash
+   git clone https://github.com/thienan1512002/IT61_BTL.git
+
+   cd IT61_BTL
+   ```
