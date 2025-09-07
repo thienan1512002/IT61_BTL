@@ -99,12 +99,31 @@ def save_rules_json(rules, path):
 
 # CHẠY TOÀN BỘ QUY TRÌNH
 if __name__ == '__main__':
-    # Chạy toàn bộ quy trình khai phá luật kết hợp
-    snap_path = './Raw_Data/facebook_combined.txt'  # Đường dẫn file SNAP
-    graph = load_snap_data(snap_path)                # Đọc dữ liệu mạng xã hội
+    # Lấy đường dẫn tuyệt đối đến thư mục gốc dự án
+    import os
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    # Tạo đường dẫn đến các file
+    snap_path = os.path.join(project_root, 'Raw_Data', 'facebook_combined.txt')
+    print(f"📂 Đường dẫn file dữ liệu: {snap_path}")
+    
+    # Kiểm tra file tồn tại
+    if not os.path.exists(snap_path):
+        print("❌ Lỗi: Không tìm thấy file dữ liệu!")
+        print("💡 Hãy chạy combine_edges.py trước để tạo file facebook_combined.txt")
+        exit(1)
+        
+    # Đọc dữ liệu mạng xã hội
+    graph = load_snap_data(snap_path)
 
     baskets = convert_to_baskets(graph)              # Tạo các giỏ hàng từ dữ liệu mạng
     df = baskets_to_df(baskets)                      # Chuyển thành DataFrame nhị phân
 
     rules = mine_association_rules(df, min_support=0.05, min_confidence=0.6)  # Khai phá luật kết hợp
-    save_rules_json(rules, './Data_Result/Rules/association_rules.json')       # Lưu luật ra file JSON
+    # Tạo thư mục Data_Result/Rules nếu chưa tồn tại
+    output_dir = os.path.join(project_root, 'Data_Result', 'Rules')
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Lưu luật ra file JSON
+    output_path = os.path.join(output_dir, 'association_rules.json')
+    save_rules_json(rules, output_path)
