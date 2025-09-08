@@ -47,6 +47,7 @@ IT61_BTL/
 ### 1. Cài đặt và chuẩn bị
 
 1. **Chuẩn bị môi trường Python**:
+
    ```powershell
    # Kiểm tra phiên bản
    python --version  # Phải >= 3.7
@@ -64,17 +65,20 @@ IT61_BTL/
 ### 2. Khai phá luật kết hợp
 
 1. **Chạy thuật toán**:
+
    ```powershell
    cd Snap_Apriori
    python snap_apriori.py
    ```
 
 2. **Tham số có thể điều chỉnh**:
+
    - Trong file `snap_apriori.py`:
+
      ```python
      # Thuật toán: 'apriori' hoặc 'fpgrowth'
      algorithm = 'fpgrowth'
-     
+
      # Ngưỡng
      min_support = 0.05
      min_confidence = 0.5
@@ -108,6 +112,7 @@ IT61_BTL/
 ### 2. Cài đặt
 
 1. **Cài đặt .NET SDK**:
+
    - Tải từ: https://dotnet.microsoft.com/download
    - Kiểm tra:
      ```powershell
@@ -115,6 +120,7 @@ IT61_BTL/
      ```
 
 2. **Chuẩn bị database**:
+
    ```powershell
    # Chạy script tạo database
    cd Database
@@ -128,15 +134,16 @@ IT61_BTL/
 ### 3. Chạy ứng dụng
 
 1. **Build và run**:
+
    ```powershell
    cd DataMiningSocialApp
-   
+
    # Restore dependencies
    dotnet restore
-   
+
    # Build
    dotnet build
-   
+
    # Run
    dotnet run
    ```
@@ -151,11 +158,13 @@ IT61_BTL/
 ### 4. Tính năng
 
 1. **Dashboard**
+
    - So sánh hiệu suất Apriori vs FP-Growth
    - Biểu đồ thống kê
    - Danh sách luật kết hợp
 
 2. **Khai phá luật**
+
    - Xem tất cả luật
    - Lọc theo metrics:
      - Support >= 0.05
@@ -170,22 +179,27 @@ IT61_BTL/
 ## Xử lý lỗi thường gặp
 
 ### Python
+
 - Check PATH trong biến môi trường
 - Cài đủ thư viện
 - Đúng phiên bản Python
 
 ### .NET
+
 - Xóa thư mục bin và obj
 - Check connection string
 - SQL Server đang chạy
 
 ### Database
+
 - Quyền truy cập SQL Server
 - Chạy lại schema.sql
 - Database tồn tại
 
 ## Đóng góp
+
 Tạo issue hoặc pull request trên GitHub.
 
 ## License
+
 MIT License

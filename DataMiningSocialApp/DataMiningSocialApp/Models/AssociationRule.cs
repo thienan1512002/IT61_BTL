@@ -7,5 +7,6 @@
         public double Support { get; set; }
         public double Confidence { get; set; }
         public double Lift { get; set; }
+        public string Algorithm { get; set; } = "Apriori"; // Default to Apriori
     }
 }

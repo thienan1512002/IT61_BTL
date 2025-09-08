@@ -23,6 +23,7 @@ IT61_BTL/
 ## Yêu cầu hệ thống
 
 ### 1. Python (Xử lý dữ liệu)
+
 - Python 3.7 trở lên
 - Các thư viện cần thiết:
   ```powershell
@@ -30,6 +31,7 @@ IT61_BTL/
   ```
 
 ### 2. .NET Core (Web Application)
+
 - .NET 6.0 SDK trở lên
 - VS Code với C# Dev Kit extension
 - SQL Server (LocalDB hoặc Express)
@@ -43,6 +45,7 @@ IT61_BTL/
 ### 1. Chuẩn bị môi trường
 
 1. **Cài đặt Python và pip**:
+
    ```powershell
    # Kiểm tra Python
    python --version  # Phải >= 3.7
@@ -52,6 +55,7 @@ IT61_BTL/
    ```
 
 2. **Cài đặt .NET SDK**:
+
    - Tải từ: https://dotnet.microsoft.com/download
    - Kiểm tra:
      ```powershell
@@ -60,9 +64,12 @@ IT61_BTL/
 
    ```
 
+   ```
+
 ### 2. Khai phá luật kết hợp (Python)
 
 1. **Chuẩn bị dữ liệu**:
+
    ```powershell
    # Copy dữ liệu SNAP vào thư mục Raw_Data
    cp facebook_combined.txt Raw_Data/
@@ -81,6 +88,7 @@ IT61_BTL/
 ### 3. Chạy ứng dụng web (ASP.NET Core MVC)
 
 1. **Restore và build**:
+
    ```powershell
    cd DataMiningSocialApp
    dotnet restore
@@ -88,6 +96,7 @@ IT61_BTL/
    ```
 
 2. **Cấu hình database**:
+
    - Mở `appsettings.json`
    - Cập nhật connection string
 
@@ -100,16 +109,19 @@ IT61_BTL/
 ## Sử dụng hệ thống
 
 ### 1. Dashboard
+
 - So sánh hiệu suất Apriori vs FP-Growth
 - Xem thống kê và biểu đồ
 - URL: `/Home/Index`
 
 ### 2. Khai phá luật kết hợp
+
 - Xem danh sách luật
 - Lọc theo metrics
 - URL: `/Home/Rules`
 
 ### 3. Gợi ý bạn bè
+
 - Đăng nhập để xem gợi ý
 - Dựa trên luật kết hợp chất lượng cao
 - URL: `/Home/Suggest`
@@ -117,6 +129,7 @@ IT61_BTL/
 ## Xử lý lỗi thường gặp
 
 1. **Lỗi Python**:
+
    - Kiểm tra PATH
    - Cài đủ thư viện
    - Đúng phiên bản Python
@@ -125,4 +138,3 @@ IT61_BTL/
    - Xóa bin/obj, build lại
    - Check connection string
    - SQL Server đang chạy
-

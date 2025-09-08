@@ -11,9 +11,12 @@
 # ---------------------------------------------
 
 import pandas as pd
-from mlxtend.frequent_patterns import apriori, fpgrowth, association_rules
+from mlxtend.frequent_patterns import apriori, association_rules
 from collections import defaultdict
 import json
+import time
+import psutil
+import datetime
 
 # BƯỚC 1: Đọc dữ liệu SNAP Facebook và hiển thị tiến trình
 def load_snap_data(path):
@@ -59,7 +62,7 @@ def baskets_to_df(baskets):
 
 # BƯỚC 4: Khai phá luật kết hợp bằng FP-Growth
 def mine_association_rules(df, min_support=0.05, min_confidence=0.7):
-    # Bước 4: Khai phá luật kết hợp bằng FP-Growth
+    # Bước 4: Khai phá luật kết hợp bằng Apriori
     # Chuyển DataFrame về dạng bool (True/False)
     df_bool = df.astype(bool)
 
@@ -72,33 +75,63 @@ def mine_association_rules(df, min_support=0.05, min_confidence=0.7):
     # Sử dụng toàn bộ transaction để khai phá luật
     print(f"✅ Sử dụng toàn bộ {df_bool.shape[0]:,} transaction để khai phá.")
 
-    # Khai phá các itemset thường xuyên bằng FP-Growth
-    freq_items = fpgrowth(df_bool, min_support=min_support, use_colnames=True)
+    # Khai phá các itemset thường xuyên bằng Apriori
+    freq_items = apriori(df_bool, min_support=min_support, use_colnames=True)
     print(f"✅ Tìm được {len(freq_items):,} itemset thường xuyên.")
 
     # Sinh các luật kết hợp từ các itemset thường xuyên
     rules = association_rules(freq_items, metric="confidence", min_threshold=min_confidence)
     print(f"✅ Khai phá được {len(rules):,} luật kết hợp.")
-    return rules
+    return rules, len(rules)
 
 # BƯỚC 5: Xuất luật ra file JSON
-def save_rules_json(rules, path):
-    # Bước 5: Lưu các luật kết hợp ra file JSON
-    output = []
+def save_rules_json(rules, total_rules, start_time, path):
+    # Tính toán metrics
+    end_time = time.time()
+    execution_time = end_time - start_time
+    process = psutil.Process()
+    memory_usage = process.memory_info().rss / 1024 / 1024  # Convert to MB
+    cpu_percent = psutil.cpu_percent()
+
+    # Tạo metadata
+    metadata = {
+        "algorithm": "Apriori",
+        "execution_time": round(execution_time, 2),
+        "total_rules": total_rules,
+        "memory_usage": round(memory_usage, 2),
+        "cpu_usage": round(cpu_percent, 2),
+        "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+    # Chuyển đổi rules thành list các dict
+    rules_list = []
     for _, row in rules.iterrows():
-        output.append({
-            "LHS": list(row['antecedents']),
-            "RHS": list(row['consequents']),
+        rules_list.append({
+            "antecedents": list(row['antecedents']),
+            "consequents": list(row['consequents']),
             "support": round(row['support'], 4),
             "confidence": round(row['confidence'], 4),
             "lift": round(row['lift'], 4)
         })
+
+    # Tạo output JSON với metadata
+    output = {
+        "metadata": metadata,
+        "rules": rules_list
+    }
+
+    # Lưu vào file
     with open(path, 'w') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     print(f"✅ Lưu luật kết hợp vào: {path}")
+    print(f"✅ Thời gian thực thi: {execution_time:.2f}s")
+    print(f"✅ Bộ nhớ sử dụng: {memory_usage:.2f}MB")
+    print(f"✅ CPU usage: {cpu_percent}%")
 
 # CHẠY TOÀN BỘ QUY TRÌNH
 if __name__ == '__main__':
+    start_time = time.time()
+    
     # Lấy đường dẫn tuyệt đối đến thư mục gốc dự án
     import os
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -119,11 +152,12 @@ if __name__ == '__main__':
     baskets = convert_to_baskets(graph)              # Tạo các giỏ hàng từ dữ liệu mạng
     df = baskets_to_df(baskets)                      # Chuyển thành DataFrame nhị phân
 
-    rules = mine_association_rules(df, min_support=0.05, min_confidence=0.6)  # Khai phá luật kết hợp
+    rules, total_rules = mine_association_rules(df, min_support=0.05, min_confidence=0.6)  # Khai phá luật kết hợp
+    
     # Tạo thư mục Data_Result/Rules nếu chưa tồn tại
     output_dir = os.path.join(project_root, 'Data_Result', 'Rules')
     os.makedirs(output_dir, exist_ok=True)
     
     # Lưu luật ra file JSON
     output_path = os.path.join(output_dir, 'association_rules.json')
-    save_rules_json(rules, output_path)
+    save_rules_json(rules, total_rules, start_time, output_path)

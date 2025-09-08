@@ -27,7 +27,49 @@ namespace DataMiningSocialApp.Services
                 PropertyNameCaseInsensitive = true
             };
             var json = File.ReadAllText(path); // Đọc nội dung file JSON
-            return JsonSerializer.Deserialize<List<AssociationRule>>(json, options); // Deserialize thành List<AssociationRule>
+
+            // Đọc dữ liệu từ JSON với cấu trúc mới chung
+            var jsonData = JsonSerializer.Deserialize<RuleData>(json, options);
+            if (jsonData?.Rules == null) return new List<AssociationRule>();
+
+            string algorithm = jsonData.Metadata?.Algorithm ?? "Unknown";
+
+            return jsonData.Rules.Select(r => new AssociationRule
+            {
+                LHS = r.Antecedents ?? new List<string>(),
+                RHS = r.Consequents ?? new List<string>(),
+                Support = r.Support,
+                Confidence = r.Confidence,
+                Lift = r.Lift,
+                Algorithm = algorithm
+            }).ToList();
+        }
+
+        private class RuleData
+        {
+            public MetaData? Metadata { get; set; }
+            public List<Rule>? Rules { get; set; }
+        }
+
+        private class MetaData
+        {
+            public string Algorithm { get; set; } = string.Empty;
+            public double ExecutionTime { get; set; }
+            public double MemoryUsage { get; set; }
+            public double CpuUsage { get; set; }
+            public int TotalRules { get; set; }
+            public string Timestamp { get; set; } = string.Empty;
+        }
+
+        private class Rule
+        {
+            public List<string> Antecedents { get; set; } = new List<string>();
+            public List<string> Consequents { get; set; } = new List<string>();
+            public double Support { get; set; }
+            public double Confidence { get; set; }
+            public double Lift { get; set; }
+            public double? Leverage { get; set; }
+            public double? Conviction { get; set; }
         }
 
         /// <summary>
@@ -75,20 +117,21 @@ namespace DataMiningSocialApp.Services
             // Duyệt qua từng luật kết hợp
             foreach (var rule in rules)
             {
-                // Nếu tất cả phần tử bên trái luật đều có trong danh sách bạn bè của user
-                if (rule.LHS.All(x => userFriends.Contains(x)))
+                if (rule.LHS != null && rule.RHS != null)
                 {
-                    // Duyệt qua các phần tử bên phải luật
-                    foreach (var f in rule.RHS)
+                    // Nếu tất cả phần tử bên trái luật đều có trong danh sách bạn bè của user
+                    if (rule.LHS.All(x => userFriends.Contains(x)))
                     {
-                        // Nếu chưa là bạn và không phải chính user thì thêm vào gợi ý
-                        if (!userFriends.Contains(f) && f != userId)
+                        // Duyệt qua các phần tử bên phải luật
+                        foreach (var f in rule.RHS)
                         {
-                            suggestions.Add(f);
+                            // Nếu chưa là bạn và không phải chính user thì thêm vào gợi ý
+                            if (!userFriends.Contains(f) && f != userId)
+                            {
+                                suggestions.Add(f);
+                            }
                         }
-                            
                     }
-                        
                 }
             }
 

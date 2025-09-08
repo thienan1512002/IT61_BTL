@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="text-center mb-4">Data Mining Dashboard</h2>
+
+    <!-- Algorithm Comparison Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Algorithm Performance Comparison</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="memoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rules Overview Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Association Rules Overview</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Apriori Rules</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Antecedent</th>
+                                    <th>Consequent</th>
+                                    <th>Support</th>
+                                    <th>Confidence</th>
+                                    <th>Lift</th>
+                                </tr>
+                            </thead>
+                            <tbody id="aprioriRules">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>FP-Growth Rules</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Antecedent</th>
+                                    <th>Consequent</th>
+                                    <th>Support</th>
+                                    <th>Confidence</th>
+                                    <th>Lift</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fpGrowthRules">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Metrics Card -->
+    <div class="card">
+        <div class="card-header">
+            <h4>Performance Metrics</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Apriori</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Processing Time: <span id="aprioriTime">~45s</span></li>
+                        <li class="list-group-item">Memory Usage: <span id="aprioriMemory">~800MB</span></li>
+                        <li class="list-group-item">CPU Usage: <span id="aprioriCpu">85%</span></li>
+                        <li class="list-group-item">Rules Found: <span id="aprioriRulesCount">1,234</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>FP-Growth</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Processing Time: <span id="fpTime">~12s</span></li>
+                        <li class="list-group-item">Memory Usage: <span id="fpMemory">~300MB</span></li>
+                        <li class="list-group-item">CPU Usage: <span id="fpCpu">65%</span></li>
+                        <li class="list-group-item">Rules Found: <span id="fpRulesCount">1,234</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/dashboard.js"></script>
+}
