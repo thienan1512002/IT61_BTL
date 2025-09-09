@@ -17,11 +17,12 @@ Hệ thống khai phá và phân tích mối quan hệ trong mạng xã hội s�
   - scikit-learn
   - mlxtend
   - json (có sẵn trong Python)
+  - datetime
 
 Cài đặt thư viện bằng lệnh:
 
 ```powershell
-pip install pandas numpy scikit-learn mlxtend
+pip install pandas numpy scikit-learn mlxtend datetime
 ```
 
 ## Cấu trúc thư mục
@@ -53,14 +54,8 @@ IT61_BTL/
    python --version  # Phải >= 3.7
 
    # Cài đặt thư viện
-   pip install pandas numpy scikit-learn mlxtend
+   pip install pandas numpy scikit-learn mlxtend datetime
    ```
-
-2. **Chuẩn bị dữ liệu**:
-   - Copy dữ liệu SNAP vào thư mục `Raw_Data/`:
-     - `facebook_combined.txt`: Dữ liệu quan hệ bạn bè
-     - `features.txt`: Đặc trưng người dùng (optional)
-     - `circles/`: Thông tin nhóm (optional)
 
 ### 2. Khai phá luật kết hợp
 
@@ -71,18 +66,7 @@ IT61_BTL/
    python snap_apriori.py
    ```
 
-2. **Tham số có thể điều chỉnh**:
 
-   - Trong file `snap_apriori.py`:
-
-     ```python
-     # Thuật toán: 'apriori' hoặc 'fpgrowth'
-     algorithm = 'fpgrowth'
-
-     # Ngưỡng
-     min_support = 0.05
-     min_confidence = 0.5
-     ```
 
 3. **Kết quả**:
    - File: `Data_Result/Rules/association_rules.json`
