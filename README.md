@@ -87,7 +87,6 @@ IT61_BTL/
 
 - **.NET Core SDK**: 6.0 trở lên
 - **IDE**: VS Code với C# Dev Kit extension
-- **Database**: SQL Server (LocalDB/Express)
 - **Packages**:
   - Microsoft.EntityFrameworkCore.SqlServer
   - Dapper
@@ -102,19 +101,6 @@ IT61_BTL/
      ```powershell
      dotnet --version  # Phải >= 6.0
      ```
-
-2. **Chuẩn bị database**:
-
-   ```powershell
-   # Chạy script tạo database
-   cd Database
-   sqlcmd -S .(LocalDB) -i schema.sql
-   ```
-
-3. **Cấu hình ứng dụng**:
-   - Mở `DataMiningSocialApp/appsettings.json`
-   - Cập nhật connection string
-
 ### 3. Chạy ứng dụng
 
 1. **Build và run**:
