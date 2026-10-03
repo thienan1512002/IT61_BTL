@@ -1,14 +1,4 @@
 
-# snap_apriori.py
-# ---------------------------------------------
-# QUY TRÌNH KHAI PHÁ LUẬT KẾT HỢP TỪ DỮ LIỆU MẠNG XÃ HỘI FACEBOOK (SNAP)
-# Các bước:
-# 1. Đọc dữ liệu mạng xã hội từ file SNAP (facebook_combined.txt)
-# 2. Chuyển đổi dữ liệu thành các giỏ hàng (baskets) - mỗi giỏ là danh sách bạn bè của một người dùng
-# 3. Chuyển đổi các giỏ hàng thành DataFrame nhị phân (mỗi cột là một người dùng, mỗi dòng là một transaction)
-# 4. Khai phá luật kết hợp bằng thuật toán FP-Growth
-# 5. Lưu các luật kết hợp ra file JSON để phục vụ phân tích, trực quan hóa hoặc đề xuất
-# ---------------------------------------------
 
 import pandas as pd
 from mlxtend.frequent_patterns import apriori, association_rules

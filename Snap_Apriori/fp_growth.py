@@ -5,6 +5,7 @@ from collections import defaultdict
 import json
 import os
 import time
+import psutil
 
 def load_data(path):
     """Đọc dữ liệu từ file facebook_combined.txt"""
@@ -90,6 +91,10 @@ def mine_fp_growth(df, min_support=0.05, min_confidence=0.5, min_lift=1.0):
 def save_results(rules, duration, output_path):
     """Lưu kết quả ra file JSON"""
     print("\n5️⃣ Lưu kết quả...")
+
+    process = psutil.Process()
+    memory_usage = process.memory_info().rss / 1024 / 1024  # Convert to MB
+    cpu_percent = psutil.cpu_percent()
     
     # Tạo thư mục nếu chưa tồn tại
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -100,6 +105,8 @@ def save_results(rules, duration, output_path):
             "algorithm": "FP-Growth",
             "execution_time": duration,
             "total_rules": len(rules),
+            "memory_usage": round(memory_usage, 2),
+            "cpu_usage": round(cpu_percent, 2),
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
         },
         "rules": []

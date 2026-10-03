@@ -1,11 +1,11 @@
 {
   "metadata": {
     "algorithm": "Apriori",
-    "execution_time": 2.69,
+    "execution_time": 2.66,
     "total_rules": 76,
-    "memory_usage": 202.45,
-    "cpu_usage": 13.1,
-    "timestamp": "2025-09-08 20:02:00"
+    "memory_usage": 203.29,
+    "cpu_usage": 14.9,
+    "timestamp": "2025-09-11 18:10:42"
   },
   "rules": [
     {
@@ -32,17 +32,6 @@
     },
     {
       "antecedents": [
-        "1352"
-      ],
-      "consequents": [
-        "1663"
-      ],
-      "support": 0.0502,
-      "confidence": 0.8326,
-      "lift": 13.7418
-    },
-    {
-      "antecedents": [
         "1663"
       ],
       "consequents": [
@@ -57,11 +46,11 @@
         "1352"
       ],
       "consequents": [
-        "1800"
+        "1663"
       ],
-      "support": 0.051,
-      "confidence": 0.8455,
-      "lift": 13.3824
+      "support": 0.0502,
+      "confidence": 0.8326,
+      "lift": 13.7418
     },
     {
       "antecedents": [
@@ -79,11 +68,11 @@
         "1352"
       ],
       "consequents": [
-        "1888"
+        "1800"
       ],
-      "support": 0.052,
-      "confidence": 0.8627,
-      "lift": 13.1684
+      "support": 0.051,
+      "confidence": 0.8455,
+      "lift": 13.3824
     },
     {
       "antecedents": [
@@ -98,14 +87,14 @@
     },
     {
       "antecedents": [
-        "1888"
+        "1352"
       ],
       "consequents": [
-        "1431"
+        "1888"
       ],
-      "support": 0.051,
-      "confidence": 0.7787,
-      "lift": 13.7314
+      "support": 0.052,
+      "confidence": 0.8627,
+      "lift": 13.1684
     },
     {
       "antecedents": [
@@ -116,6 +105,17 @@
       ],
       "support": 0.051,
       "confidence": 0.8995,
+      "lift": 13.7314
+    },
+    {
+      "antecedents": [
+        "1888"
+      ],
+      "consequents": [
+        "1431"
+      ],
+      "support": 0.051,
+      "confidence": 0.7787,
       "lift": 13.7314
     },
     {
@@ -142,17 +142,6 @@
     },
     {
       "antecedents": [
-        "1888"
-      ],
-      "consequents": [
-        "1800"
-      ],
-      "support": 0.0546,
-      "confidence": 0.834,
-      "lift": 13.2003
-    },
-    {
-      "antecedents": [
         "1800"
       ],
       "consequents": [
@@ -164,14 +153,14 @@
     },
     {
       "antecedents": [
-        "2266"
+        "1888"
       ],
       "consequents": [
-        "1985"
+        "1800"
       ],
-      "support": 0.051,
-      "confidence": 0.8455,
-      "lift": 14.6426
+      "support": 0.0546,
+      "confidence": 0.834,
+      "lift": 13.2003
     },
     {
       "antecedents": [
@@ -186,14 +175,14 @@
     },
     {
       "antecedents": [
-        "2233"
+        "2266"
       ],
       "consequents": [
-        "1993"
+        "1985"
       ],
-      "support": 0.0502,
-      "confidence": 0.8778,
-      "lift": 16.783
+      "support": 0.051,
+      "confidence": 0.8455,
+      "lift": 14.6426
     },
     {
       "antecedents": [
@@ -204,6 +193,17 @@
       ],
       "support": 0.0502,
       "confidence": 0.9604,
+      "lift": 16.783
+    },
+    {
+      "antecedents": [
+        "2233"
+      ],
+      "consequents": [
+        "1993"
+      ],
+      "support": 0.0502,
+      "confidence": 0.8778,
       "lift": 16.783
     },
     {
@@ -274,17 +274,6 @@
     },
     {
       "antecedents": [
-        "2123"
-      ],
-      "consequents": [
-        "2206"
-      ],
-      "support": 0.0505,
-      "confidence": 0.9653,
-      "lift": 17.8381
-    },
-    {
-      "antecedents": [
         "2206"
       ],
       "consequents": [
@@ -292,6 +281,17 @@
       ],
       "support": 0.0505,
       "confidence": 0.933,
+      "lift": 17.8381
+    },
+    {
+      "antecedents": [
+        "2123"
+      ],
+      "consequents": [
+        "2206"
+      ],
+      "support": 0.0505,
+      "confidence": 0.9653,
       "lift": 17.8381
     },
     {
@@ -340,17 +340,6 @@
     },
     {
       "antecedents": [
-        "2266"
-      ],
-      "consequents": [
-        "2142"
-      ],
-      "support": 0.0546,
-      "confidence": 0.9056,
-      "lift": 15.897
-    },
-    {
-      "antecedents": [
         "2142"
       ],
       "consequents": [
@@ -358,6 +347,17 @@
       ],
       "support": 0.0546,
       "confidence": 0.9591,
+      "lift": 15.897
+    },
+    {
+      "antecedents": [
+        "2266"
+      ],
+      "consequents": [
+        "2142"
+      ],
+      "support": 0.0546,
+      "confidence": 0.9056,
       "lift": 15.897
     },
     {
@@ -384,6 +384,17 @@
     },
     {
       "antecedents": [
+        "2206"
+      ],
+      "consequents": [
+        "2218"
+      ],
+      "support": 0.0505,
+      "confidence": 0.933,
+      "lift": 17.6632
+    },
+    {
+      "antecedents": [
         "2218"
       ],
       "consequents": [
@@ -398,11 +409,11 @@
         "2206"
       ],
       "consequents": [
-        "2218"
+        "2229"
       ],
-      "support": 0.0505,
-      "confidence": 0.933,
-      "lift": 17.6632
+      "support": 0.0502,
+      "confidence": 0.9282,
+      "lift": 17.4021
     },
     {
       "antecedents": [
@@ -420,11 +431,11 @@
         "2206"
       ],
       "consequents": [
-        "2229"
+        "2233"
       ],
-      "support": 0.0502,
-      "confidence": 0.9282,
-      "lift": 17.4021
+      "support": 0.0515,
+      "confidence": 0.9522,
+      "lift": 16.639
     },
     {
       "antecedents": [
@@ -442,11 +453,11 @@
         "2206"
       ],
       "consequents": [
-        "2233"
+        "2240"
       ],
-      "support": 0.0515,
-      "confidence": 0.9522,
-      "lift": 16.639
+      "support": 0.0502,
+      "confidence": 0.9282,
+      "lift": 17.9241
     },
     {
       "antecedents": [
@@ -464,11 +475,11 @@
         "2206"
       ],
       "consequents": [
-        "2240"
+        "2266"
       ],
-      "support": 0.0502,
-      "confidence": 0.9282,
-      "lift": 17.9241
+      "support": 0.0526,
+      "confidence": 0.9713,
+      "lift": 16.0993
     },
     {
       "antecedents": [
@@ -486,11 +497,11 @@
         "2206"
       ],
       "consequents": [
-        "2266"
+        "2464"
       ],
-      "support": 0.0526,
-      "confidence": 0.9713,
-      "lift": 16.0993
+      "support": 0.0508,
+      "confidence": 0.9378,
+      "lift": 18.0188
     },
     {
       "antecedents": [
@@ -501,17 +512,6 @@
       ],
       "support": 0.0508,
       "confidence": 0.9751,
-      "lift": 18.0188
-    },
-    {
-      "antecedents": [
-        "2206"
-      ],
-      "consequents": [
-        "2464"
-      ],
-      "support": 0.0508,
-      "confidence": 0.9378,
       "lift": 18.0188
     },
     {
@@ -560,17 +560,6 @@
     },
     {
       "antecedents": [
-        "2233"
-      ],
-      "consequents": [
-        "2266"
-      ],
-      "support": 0.0518,
-      "confidence": 0.905,
-      "lift": 15.0001
-    },
-    {
-      "antecedents": [
         "2266"
       ],
       "consequents": [
@@ -585,11 +574,11 @@
         "2233"
       ],
       "consequents": [
-        "2464"
+        "2266"
       ],
-      "support": 0.0505,
-      "confidence": 0.8824,
-      "lift": 16.9535
+      "support": 0.0518,
+      "confidence": 0.905,
+      "lift": 15.0001
     },
     {
       "antecedents": [
@@ -600,6 +589,17 @@
       ],
       "support": 0.0505,
       "confidence": 0.9701,
+      "lift": 16.9535
+    },
+    {
+      "antecedents": [
+        "2233"
+      ],
+      "consequents": [
+        "2464"
+      ],
+      "support": 0.0505,
+      "confidence": 0.8824,
       "lift": 16.9535
     },
     {
@@ -715,6 +715,18 @@
     {
       "antecedents": [
         "2078",
+        "2206"
+      ],
+      "consequents": [
+        "2266"
+      ],
+      "support": 0.0502,
+      "confidence": 0.9798,
+      "lift": 16.2403
+    },
+    {
+      "antecedents": [
+        "2078",
         "2266"
       ],
       "consequents": [
@@ -726,20 +738,8 @@
     },
     {
       "antecedents": [
-        "2078",
-        "2206"
-      ],
-      "consequents": [
+        "2206",
         "2266"
-      ],
-      "support": 0.0502,
-      "confidence": 0.9798,
-      "lift": 16.2403
-    },
-    {
-      "antecedents": [
-        "2266",
-        "2206"
       ],
       "consequents": [
         "2078"
@@ -753,24 +753,12 @@
         "2078"
       ],
       "consequents": [
-        "2266",
-        "2206"
+        "2206",
+        "2266"
       ],
       "support": 0.0502,
       "confidence": 0.9557,
       "lift": 18.1812
-    },
-    {
-      "antecedents": [
-        "2266"
-      ],
-      "consequents": [
-        "2078",
-        "2206"
-      ],
-      "support": 0.0502,
-      "confidence": 0.8326,
-      "lift": 16.2403
     },
     {
       "antecedents": [
@@ -786,20 +774,32 @@
     },
     {
       "antecedents": [
-        "2233",
         "2266"
       ],
       "consequents": [
+        "2078",
         "2206"
       ],
       "support": 0.0502,
-      "confidence": 0.97,
-      "lift": 17.9241
+      "confidence": 0.8326,
+      "lift": 16.2403
     },
     {
       "antecedents": [
-        "2233",
-        "2206"
+        "2206",
+        "2266"
+      ],
+      "consequents": [
+        "2233"
+      ],
+      "support": 0.0502,
+      "confidence": 0.9557,
+      "lift": 16.7004
+    },
+    {
+      "antecedents": [
+        "2206",
+        "2233"
       ],
       "consequents": [
         "2266"
@@ -811,34 +811,34 @@
     {
       "antecedents": [
         "2266",
-        "2206"
-      ],
-      "consequents": [
         "2233"
       ],
+      "consequents": [
+        "2206"
+      ],
       "support": 0.0502,
-      "confidence": 0.9557,
-      "lift": 16.7004
+      "confidence": 0.97,
+      "lift": 17.9241
     },
     {
       "antecedents": [
-        "2233"
+        "2206"
       ],
       "consequents": [
         "2266",
-        "2206"
+        "2233"
       ],
       "support": 0.0502,
-      "confidence": 0.8778,
-      "lift": 16.7004
+      "confidence": 0.9282,
+      "lift": 17.9241
     },
     {
       "antecedents": [
         "2266"
       ],
       "consequents": [
-        "2233",
-        "2206"
+        "2206",
+        "2233"
       ],
       "support": 0.0502,
       "confidence": 0.8326,
@@ -846,15 +846,15 @@
     },
     {
       "antecedents": [
-        "2206"
+        "2233"
       ],
       "consequents": [
-        "2233",
+        "2206",
         "2266"
       ],
       "support": 0.0502,
-      "confidence": 0.9282,
-      "lift": 17.9241
+      "confidence": 0.8778,
+      "lift": 16.7004
     }
   ]
 }
